@@ -206,3 +206,5 @@ Thus far:
       end
     end
   end 
+
+Now when we ask the user for their input (listig a number), they'll see "More info about" message along with that same "Want to learn more?" message from the beginning. It now loops.
