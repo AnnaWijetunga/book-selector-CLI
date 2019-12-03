@@ -8,3 +8,5 @@ BookSelector::CLI.new.call
 
 # class called CLI that I can instantiate and say the call method on
 # that'll be what I need to start my program
+
+# I have defined my execution point - this is the file people are running
