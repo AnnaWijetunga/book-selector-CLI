@@ -28,14 +28,11 @@ class BookSelector::CLI
     input = nil
     while input != "exit"
       puts "Want more? Type the number of a book or type list to see the books again or type exit:"
-      
       input = gets.strip.downcase # strip, removes whitespace before and after user input
-      case input 
-      when "1"
-        puts "More about book 1."
-      when "2"
-        puts "More about book 2."
-      when "list"
+      
+      if input.to_i > 0
+        puts @books[input.to_i-1]
+      elsif input == "list"
         list_books
       else
         puts "Let's try again - type list or exit."
