@@ -222,3 +222,21 @@ The git push pushes all your changes to your repository.
 Do this upon each milestone or in my, after each significant update, so I can build this darn habit!
 
 Man I tell you what - there's never a missed opportunity to learn something new here. WOOF.
+
+8) [Get real data] My user interface is essentially ready! Let's exchange our fake hard-coded data for the real stuff.
+
+So, what does it mean when a user selects a book? What is a book?
+
+A book has a title.
+A book has a summary.
+A book has a link to get more information.
+
+We need an object, which has these properties.
+
+@books = BookSelector::Book.all
+
+Book class method call all books that returns a bunch of books.
+
+An object, called Book that has a class method called all that should return these books.
+
+This is what I want - now how to get it?
