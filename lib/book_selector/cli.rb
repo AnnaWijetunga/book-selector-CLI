@@ -21,6 +21,7 @@ class BookSelector::CLI
       9. "Treasure Island"
       10. "The Wonderful Wizard of Oz "
     DOC
+    @books = BookSelector::Book.all # time to make a new file, book
   end 
 
   def menu 
