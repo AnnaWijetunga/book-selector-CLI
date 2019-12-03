@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require './lib/book_selector'
+
+BookSelector::CLI.new.call 
+# now I can program into this object entirely
+# vs inside this book-selector file
+
+# class called CLI that I can instantiate and say the call method on
+# that'll be what I need to start my program
