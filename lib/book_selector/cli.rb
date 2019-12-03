@@ -36,6 +36,8 @@ class BookSelector::CLI
         puts "More about book 2."
       when "list"
         list_books
+      else
+        puts "Let's try again - type list or exit."
       end
     end
   end 
