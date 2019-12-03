@@ -24,10 +24,9 @@ class BookSelector::CLI
   end 
 
   def menu 
-    # puts "Want to learn more? Type the number of any book or type exit to enter:"
     input = nil
     while input != "exit"
-      puts "Want to learn more? Type the number of any book or type exit to enter:"
+      puts "Want more? Type the number of a book or type list to see the books again or type exit:"
       
       input = gets.strip.downcase # strip, removes whitespace before and after user input
       case input 
@@ -35,6 +34,8 @@ class BookSelector::CLI
         puts "More about book 1."
       when "2"
         puts "More about book 2."
+      when "list"
+        list_books
       end
     end
   end 
