@@ -8,7 +8,7 @@ class BookSelector::CLI
   end
 
   def list_books
-    # puts "Classic Kid's Books"
+    puts "Classic Kid's Books"
     # puts <<-DOC
     #   1. "Adventures of Huckleberry Finn"
     #   2. "Alice's Adventures in Wonderland"
