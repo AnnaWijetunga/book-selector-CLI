@@ -240,3 +240,34 @@ Book class method call all books that returns a bunch of books.
 An object, called Book that has a class method called all that should return these books.
 
 This is what I want - now how to get it?
+
+Start by creating a book object within a new file (book.rb) and build it out a wee bit:
+
+class BookSelector::Book
+
+  def self.all
+    # I should return instances of books
+    puts "Classic Kid's Books"
+    puts <<-DOC
+      1. "Adventures of Huckleberry Finn"
+      2. "Alice's Adventures in Wonderland"
+      3. "Fairy Tales of the Brothers Grimm"
+      4. "Hansel & Grethel"
+      5. "The Jungle Book"
+      6. "Pinocchio"
+      7. "Robin Hood"
+      8. "Snow White"
+      9. "Treasure Island"
+      10. "The Wonderful Wizard of Oz "
+    DOC
+  end 
+
+
+end 
+
+Finally, for this to work, we need to require this new file in our book_selector.rb file (our environment):
+
+require_relative "./book_selector/version"
+require_relative "./book_selector/book" -- added this one!
+require_relative "./book_selector/cli" 
+
