@@ -6,10 +6,13 @@ class BookSelector::Book
 
   def self.all
     # I should return instances of books
-    # puts <<-DOC
-    #   1. "Adventures of Huckleberry Finn" - This great American novel follows the adventures of a teenager and his life on the Mississippi River.
-    #   2. "Alice's Adventures in Wonderland" - A girl named Alice falls into a rabbit hole, where she encounters a world of strange creatures.
-    # DOC
+    # scrape read.gov and return books based on that data
+    self.scrape_books
+    # BookSelector::BookScraper.new("http://read.gov/books/")
+    # BookSelector::BookScraper.new.books
+  end 
+
+  def self.scrape_deals
     book_1 = self.new # self is Book here
     book_1.title = "'Adventures of Huckleberry Finn'"
     book_1.summary = "This great American novel follows the adventures of a teenager and his life on the Mississippi River."
