@@ -181,3 +181,28 @@ Tested this out with a "here DOC" as advised by Avi - helpful for multi-line str
 
 Pretty cool!
 
+7) [Editing my loop] As I run the program, I see options I'd like the user to have.
+
+The user should see the list of books, and then be prompted to learn more about a particular book.
+
+Time to build out a loop. We ask the user if they want to learn more - then to select a book number.
+
+Once they do, we need to respond with more information about that book. BUT ALSO, respond with the menu again, vs closing out the program.
+
+Thus far:
+
+  def menu 
+    # puts "Want to learn more? Type the number of any book or type exit to enter:"
+    input = nil
+    while input != "exit"
+      puts "Want to learn more? Type the number of any book or type exit to enter:"
+      
+      input = gets.strip.downcase # strip, removes whitespace before and after user input
+      case input 
+      when "1"
+        puts "More about book 1."
+      when "2"
+        puts "More about book 2."
+      end
+    end
+  end 

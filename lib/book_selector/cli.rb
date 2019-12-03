@@ -8,7 +8,6 @@ class BookSelector::CLI
   end
 
   def list_books
-
     puts "Classic Kid's Books"
     puts <<-DOC
       1. "Adventures of Huckleberry Finn"
@@ -25,19 +24,22 @@ class BookSelector::CLI
   end 
 
   def menu 
-    puts "Want to learn more? Type the number of any book or type exit to enter:"
-    while input 
-      input = gets.strip.downcase
-      case input != "exit"
+    # puts "Want to learn more? Type the number of any book or type exit to enter:"
+    input = nil
+    while input != "exit"
+      puts "Want to learn more? Type the number of any book or type exit to enter:"
+      
+      input = gets.strip.downcase # strip, removes whitespace before and after user input
+      case input 
       when "1"
-        puts "More about book 1"
+        puts "More about book 1."
       when "2"
-        puts "More about book 2"
+        puts "More about book 2."
       end
     end
   end 
 
   def goodbye
-    puts "See you next time and happy reading!"
+    puts "Until next time! Happy reading!"
   end 
 end 
