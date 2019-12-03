@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require './lib/book_selector'
+# require "book_selector"
 
 BookSelector::CLI.new.call 
 # now I can program into this object entirely
