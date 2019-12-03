@@ -208,3 +208,17 @@ Thus far:
   end 
 
 Now when we ask the user for their input (listig a number), they'll see "More info about" message along with that same "Want to learn more?" message from the beginning. It now loops.
+
+Excuse the interruption - git commit.
+
+When a change has been made:
+git status
+git add . 
+git commit -m "sweet lil' message"
+git push
+
+The git push pushes all your changes to your repository.
+
+Do this upon each milestone or in my, after each significant update, so I can build this darn habit!
+
+Man I tell you what - there's never a missed opportunity to learn something new here. WOOF.
