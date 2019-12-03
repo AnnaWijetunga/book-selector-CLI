@@ -9,19 +9,11 @@ class BookSelector::CLI
 
   def list_books
     puts "Classic Kid's Books"
-    # puts <<-DOC
-    #   1. "Adventures of Huckleberry Finn"
-    #   2. "Alice's Adventures in Wonderland"
-    #   3. "Fairy Tales of the Brothers Grimm"
-    #   4. "Hansel & Grethel"
-    #   5. "The Jungle Book"
-    #   6. "Pinocchio"
-    #   7. "Robin Hood"
-    #   8. "Snow White"
-    #   9. "Treasure Island"
-    #   10. "The Wonderful Wizard of Oz "
-    # DOC
     @books = BookSelector::Book.all # time to make a new file, book
+    @books.each.with_index(1) do |book, i|
+      puts "#{i}. #{book.title}"
+    end 
+
   end 
 
   def menu 
@@ -31,7 +23,8 @@ class BookSelector::CLI
       input = gets.strip.downcase # strip, removes whitespace before and after user input
       
       if input.to_i > 0
-        puts @books[input.to_i-1]
+        the_book = @books[input.to_i-1]
+        puts "#{the_book.title}"
       elsif input == "list"
         list_books
       else
