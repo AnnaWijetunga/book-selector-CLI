@@ -8,13 +8,12 @@ class BookSelector::CLI
   end
 
   def list_books
-    puts "Classic Kid's Books"
-    @books = BookSelector::Book.all # time to make a new file, book
+    puts "Classic Children's Books"
+    @books = BookSelector::Book.all 
 
     @books.each.with_index(1) do |book, i|
       puts "#{i}. #{book.title}"
     end 
-
   end 
 
   def menu 
@@ -26,7 +25,7 @@ class BookSelector::CLI
       if input.to_i > 0
         book = @books[input.to_i-1]
         puts "#{book.title}"
-        `open #{book.url}`
+        # `open #{book.url}` very cool! opens in an actual browser!
       elsif input == "list"
         list_books
       else
