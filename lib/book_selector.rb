@@ -1,3 +1,6 @@
+# require 'nokogiri'
+# require 'pry'
+
 require_relative "./book_selector/version"
 require_relative "./book_selector/book"
 require_relative "./book_selector/cli" 
