@@ -1,6 +1,7 @@
 # I will have to require this new file
 require "open-uri"
 require "nokogiri"
+require "pry"
 
 class BookSelector::Book
 
@@ -11,23 +12,21 @@ class BookSelector::Book
     # scrape read.gov and return books based on that data
     self.scrape_books
     # BookSelector::BookScraper.new("http://read.gov/books/")
-    # BookSelector::BookScraper.new.books
-
-  # p > strong
-    
+    # BookSelector::BookScraper.new.books 
   end 
 
   def self.scrape_books 
     base_url = "http://read.gov/books/"
     html = open(base_url).read 
     page = Nokogiri::HTML.parse(html)
-    
+    # doc = Nokogiri::HTML(open("http://read.gov/books/"))
+
     page.css("#main_body > ul:nth-child(6) > li").map do |book_node|
       book = new
-
+      
       title_node = book_node.css("strong")
       book.title = title_node.text
-
+      
       read_more_url_node = book_node.css("p > a").find do |node|
         node.text == "More About this Book"
       end
