@@ -2,11 +2,6 @@
 
 require './lib/book_selector'
 
-# require 'open uri'
-# require 'pry'
-
-
-
 BookSelector::CLI.new.call 
 # now I can program into this object entirely
 # vs inside this book-selector file
