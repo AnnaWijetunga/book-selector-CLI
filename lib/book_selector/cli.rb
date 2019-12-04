@@ -19,7 +19,7 @@ class BookSelector::CLI
   def menu 
     input = nil
     while input != "exit"
-      puts "Would you like to learn more about a book? Type the number of a book or type list to see the books again or type exit:"
+      puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
       input = gets.strip.downcase # strip, removes whitespace before and after user input
       
       if input.to_i > 0
