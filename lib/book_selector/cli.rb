@@ -24,7 +24,7 @@ class BookSelector::CLI
       
       if input.to_i > 0
         book = @books[input.to_i-1]
-        puts "#{book.title}"
+        puts "#{book.title}, #{book.summary}"
         # `open #{book.url}` very cool! opens in an actual browser!
       elsif input == "list"
         list_books
