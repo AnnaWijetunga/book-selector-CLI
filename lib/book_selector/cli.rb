@@ -10,6 +10,7 @@ class BookSelector::CLI
   def list_books
     puts "Classic Kid's Books"
     @books = BookSelector::Book.all # time to make a new file, book
+
     @books.each.with_index(1) do |book, i|
       puts "#{i}. #{book.title}"
     end 
@@ -23,8 +24,9 @@ class BookSelector::CLI
       input = gets.strip.downcase # strip, removes whitespace before and after user input
       
       if input.to_i > 0
-        the_book = @books[input.to_i-1]
-        puts "#{the_book.title}"
+        book = @books[input.to_i-1]
+        puts "#{book.title}"
+        `open #{book.url}`
       elsif input == "list"
         list_books
       else
