@@ -270,4 +270,3 @@ Finally, for this to work, we need to require this new file in our book_selector
 require_relative "./book_selector/version"
 require_relative "./book_selector/book" -- added this one!
 require_relative "./book_selector/cli" 
-
