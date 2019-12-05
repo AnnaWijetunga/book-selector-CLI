@@ -9,7 +9,7 @@ class BookSelector::CLI
 
   def list_books
     puts "Welcome to Classic Children's Books!"
-    sleep 2
+    sleep 1
     puts "Not sure which of the classics to read to your child next? Take a peek at the list below:"
     sleep 2
     puts 
@@ -45,7 +45,7 @@ class BookSelector::CLI
         
         if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
           input
-          puts "#{book.author}, #{book.url}"
+          puts "#{book.url}" # soon add #{book.author}
           puts
           puts "For more books, type list. Or, type exit to exit."
         end 
