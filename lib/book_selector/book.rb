@@ -42,6 +42,9 @@ class BookSelector::Book
     end
   end
 
+  def self.scrape_author()
+  end 
+
   def self.create_books
     # go to read.gov
     # find the books
