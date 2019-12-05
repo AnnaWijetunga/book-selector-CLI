@@ -5,14 +5,10 @@ require "pry"
 
 class BookSelector::Book
 
-  attr_accessor :title, :summary, :url
+  attr_accessor :title, :summary, :url, :author
 
-  def self.all
-    # I should return instances of books
-    # scrape read.gov and return books based on that data
+  def self.all # return all instances of books after scraping read.gov
     self.scrape_books
-    # BookSelector::BookScraper.new("http://read.gov/books/")
-    # BookSelector::BookScraper.new.books 
   end 
 
   def self.scrape_books 
@@ -41,10 +37,6 @@ class BookSelector::Book
       book
     end
   end
-
-  def self.scrape_author()
-    
-  end 
 
   def to_s 
     "Book: #{title}, summary: #{summary}, url: #{url}"
