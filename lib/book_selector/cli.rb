@@ -9,7 +9,9 @@ class BookSelector::CLI
 
   def list_books
     puts "Welcome to Classic Children's Books!"
-    # I want a delay before all the books appear
+    sleep 2
+    puts "Not sure which of the classics to read to your child next? Take a peek at the list below:"
+    sleep 4
     @books = BookSelector::Book.all 
 
     @books.each.with_index(1) do |book, i|
@@ -18,11 +20,26 @@ class BookSelector::CLI
   end 
 
   def menu 
-    puts "Which book would you like to learn about? Type the number of a book to read its summary. To see the book list, type list. Or, type exit:"
-    input = nil # gets.strip 
+    puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
+    input = nil # gets.strip
 
-    # book = BookSelector::Book.scrape_books
-    # summary = BookSelector::Book.scrape_books
+    # books = BookSelector::Book.scrape_titles
+    # summaries = BookSelector::Book.scrape_summaries
+    # authors = BookSelector::Book.scrape_authors
+
+    # if input.to_i-1 <= 52(need to change)
+    #    book = books[input.to_i-1]
+    #    summary = summaries[input.to_i-1]
+    
+    #    puts book
+    #    puts
+    #    puts "Summary: #{summary}"
+
+    #    puts "Would you like to see more?"
+    #    answer = gets.strip
+
+    #    if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
+    #    end
 
 
     while input != "exit"
@@ -35,7 +52,7 @@ class BookSelector::CLI
       elsif input == "list"
         list_books
       else
-        puts "So sorry, I didn't understand. Type list or exit."
+        puts "So sorry, I didn't understand. Please type list or exit."
       end
     end
   end 
