@@ -11,7 +11,7 @@ class BookSelector::CLI
     puts "Welcome to Classic Children's Books!"
     sleep 2
     puts "Not sure which of the classics to read to your child next? Take a peek at the list below:"
-    sleep 4
+    sleep 2
     puts 
     @books = BookSelector::Book.all 
 
@@ -40,12 +40,14 @@ class BookSelector::CLI
         puts 
 
         sleep 1
-        puts "Would you like to learn more about this book?"
+        puts "Would you like to know more about this book?"
         answer = gets.strip #nil
         
         if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
           input
-          author = BookSelector::Book.scrape_url(input)
+          puts "#{book.author}, #{book.url}"
+          puts
+          puts "For more books, type list. Or, type exit to exit."
         end 
 
       elsif input == "list"
