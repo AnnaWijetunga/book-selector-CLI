@@ -23,24 +23,24 @@ class BookSelector::CLI
     puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
     input = nil # gets.strip
 
-    # books = BookSelector::Book.scrape_titles
+    # books = BookSelector::Book.scrape_books
     # summaries = BookSelector::Book.scrape_summaries
     # authors = BookSelector::Book.scrape_authors
 
-    # if input.to_i-1 <= 52(need to change)
-    #    book = books[input.to_i-1]
-    #    summary = summaries[input.to_i-1]
+    # if input.to_i-1 <= 52 # (need to change)
+    #   book = books[input.to_i-1]
+    #   summary = summaries[input.to_i-1]
     
-    #    puts book
-    #    puts
-    #    puts "Summary: #{summary}"
+    #   puts book
+    #   puts
+    #   puts "Summary: #{summary}"
 
-    #    puts "Would you like to see more?"
-    #    answer = gets.strip
+    #   puts "Would you like to see more?"
+    #   answer = gets.strip
 
-    #    if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
-    #    end
-
+    #   if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
+    #   end
+    # end 
 
     while input != "exit"
       input = gets.strip.downcase # strip, removes whitespace before and after user input
