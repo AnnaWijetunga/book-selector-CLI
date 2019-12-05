@@ -8,7 +8,8 @@ class BookSelector::CLI
   end
 
   def list_books
-    puts "Classic Children's Books"
+    puts "Welcome to Classic Children's Books!"
+    # I want a delay before all the books appear
     @books = BookSelector::Book.all 
 
     @books.each.with_index(1) do |book, i|
@@ -17,24 +18,29 @@ class BookSelector::CLI
   end 
 
   def menu 
-    input = nil
+    puts "Which book would you like to learn about? Type the number of a book to read its summary. To see the book list, type list. Or, type exit:"
+    input = nil # gets.strip 
+
+    # book = BookSelector::Book.scrape_books
+    # summary = BookSelector::Book.scrape_books
+
+
     while input != "exit"
-      puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
       input = gets.strip.downcase # strip, removes whitespace before and after user input
       
-      if input.to_i > 0
+      if input.to_i > 0 # need to adjust if input.to_i-1 <= 52 (but need to not hard code 52)
         book = @books[input.to_i-1]
         puts "#{book.title}, #{book.summary}"
         # `open #{book.url}` very cool! opens in an actual browser!
       elsif input == "list"
         list_books
       else
-        puts "Let's try again - type list or exit."
+        puts "So sorry, I didn't understand. Type list or exit."
       end
     end
   end 
 
   def goodbye
-    puts "Until next time! Happy reading!"
+    puts "Bye for now! Happy reading!"
   end 
 end 
