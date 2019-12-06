@@ -29,7 +29,7 @@ class BookSelector::Scraper
       read_more_url_node = book_node.css("p > a").find do |node| # url - more about this book
         node.text == "More About this Book"
       end
-     
+      
       relative_path = read_more_url_node.attribute("href")  # url - more about this book
       url = "#{base_url}#{relative_path}"
       book.url = url 
