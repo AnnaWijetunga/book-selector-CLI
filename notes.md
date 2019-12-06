@@ -270,3 +270,27 @@ Finally, for this to work, we need to require this new file in our book_selector
 require_relative "./book_selector/version"
 require_relative "./book_selector/book" -- added this one!
 require_relative "./book_selector/cli" 
+
+9) [Scraping data] Ok a lot happened that I did not note here, shame on me. But this was the part where I scraped data.
+
+For starters, I did build out my scrape_books method within my Book object file (which I later moved to scraper.rb).
+
+Scraping was no walk in the park - site is old, oddly coded - had to get help from Noah to find my css selectors or the other code.
+
+Methods were in book.rb.
+
+10) [Rearrange] Once scraping was done and real data was being returned (yay!), I needed to keep each object doing its own job.
+
+book.rb was doing two job - keeping instances of new books and scraping.
+
+Built scraper.rb for all scraping.
+
+Kept book.rb to hold book data.
+
+Got very stuck when I moved all scraping info to its own file. I hadn't save my returned books anywhere.
+
+Upon starting my program, there were no books lists - scraped info wasn't displaying.
+
+Needed to add book.save to the end of my scrape_books method. This saved and displayed my books.
+
+11) [Update CLI] I want to add more options and prompts for my users to follow. Time to update what I'm asking and what they receive.
