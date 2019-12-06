@@ -15,6 +15,9 @@ class BookSelector::Book # for storing data (not scraping - moved that)
   def save
     @@all << self
   end 
+
+  # moved all scraping methods below to scraper.rb
+
   # def self.all # return all instances of books after scraping read.gov
   #   self.scrape_books
   # end 
