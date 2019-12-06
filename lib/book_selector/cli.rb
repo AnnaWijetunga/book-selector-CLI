@@ -14,10 +14,6 @@ class BookSelector::CLI
     puts "Not sure which of the classics to read to your child next? Take a peek at the list below:"
     sleep 2
     puts 
-    # @books = BookSelector::Book.all 
-    # @books = BookSelector::Scraper.all
-
-    # @books.each.with_index(1) do |book, i|
 
     BookSelector::Book.all.each_with_index do |book, i|
       puts "#{i+1}. #{book.title}"
@@ -45,12 +41,15 @@ class BookSelector::CLI
 
         sleep 1
         puts "Would you like to know more about this book?"
-        answer = gets.strip #nil
+        input = gets.strip #nil 
         
-        if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
+        if ["Y", "YES"].include?(input.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
           input = gets.strip
           puts "#{book.url}" # soon add #{book.author}
           puts
+          puts "For more books, type list. Or, type exit to exit."
+        elsif ["N", "NO"].include?(input.upcase) 
+          input = gets.strip
           puts "For more books, type list. Or, type exit to exit."
         end 
 
