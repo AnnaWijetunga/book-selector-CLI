@@ -18,8 +18,9 @@ class BookSelector::CLI
     # @books = BookSelector::Scraper.all
 
     # @books.each.with_index(1) do |book, i|
-    BookSelector::Book.all.each.with_index(1) do |book, i|
-      puts "#{i}. #{book.title}"
+
+    BookSelector::Book.all.each_with_index do |book, i|
+      puts "#{i+1}. #{book.title}"
       puts
     end 
     puts
@@ -28,12 +29,11 @@ class BookSelector::CLI
   def menu 
     puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
     puts
-    input = nil # gets.strip
+    input = gets.strip # nil
     #   puts "Would you like to see more?"
     #   answer = gets.strip
 
     #   if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
-
     while input != "exit"
       input = gets.strip.downcase # strip, removes whitespace before and after user input
       
@@ -48,7 +48,7 @@ class BookSelector::CLI
         answer = gets.strip #nil
         
         if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
-          input
+          input = gets.strip
           puts "#{book.url}" # soon add #{book.author}
           puts
           puts "For more books, type list. Or, type exit to exit."
