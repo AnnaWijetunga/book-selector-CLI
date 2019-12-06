@@ -19,25 +19,25 @@ class BookSelector::Scraper
     page = Nokogiri::HTML.parse(html)
     # doc = Nokogiri::HTML(open("http://read.gov/books/"))
 
-    page.css("#main_body > ul:nth-child(6) > li").map do |book_node|
+    page.css("#main_body > ul:nth-child(6) > li").each do |book_node|
       # book = new
       book = BookSelector::Book.new
       
-      title_node = book_node.css("strong")
+      title_node = book_node.css("strong") # title
       book.title = title_node.text
       
-      read_more_url_node = book_node.css("p > a").find do |node|
+      read_more_url_node = book_node.css("p > a").find do |node| # url - more about this book
         node.text == "More About this Book"
       end
      
-      relative_path = read_more_url_node.attribute("href")
+      relative_path = read_more_url_node.attribute("href")  # url - more about this book
       url = "#{base_url}#{relative_path}"
       book.url = url 
-      
-      book_text = book_node.css("p").to_s
+  
+      book_text = book_node.css("p").to_s # summary
       summary = book_text.split("<br>")[1].strip
       book.summary = summary
-      book
+      book.save
     end
   end 
 end
