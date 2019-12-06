@@ -2,6 +2,7 @@
 class BookSelector::CLI
 
   def call 
+    BookSelector::Scraper.new.scrape_books
     list_books
     menu
     goodbye
@@ -13,9 +14,11 @@ class BookSelector::CLI
     puts "Not sure which of the classics to read to your child next? Take a peek at the list below:"
     sleep 2
     puts 
-    @books = BookSelector::Book.all 
+    # @books = BookSelector::Book.all 
+    # @books = BookSelector::Scraper.all
 
-    @books.each.with_index(1) do |book, i|
+    # @books.each.with_index(1) do |book, i|
+    BookSelector::Book.all.each.with_index(1) do |book, i|
       puts "#{i}. #{book.title}"
       puts
     end 
@@ -34,8 +37,9 @@ class BookSelector::CLI
     while input != "exit"
       input = gets.strip.downcase # strip, removes whitespace before and after user input
       
-      if input.to_i > 0 # need to adjust if input.to_i-1 <= 52 (but need to not hard code 52)
-        book = @books[input.to_i-1]
+      if input.to_i <= BookSelector::Book.all.size
+        book = BookSelector::Book.all[input.to_i-1]
+        # book = @books[input.to_i-1]
         puts "#{book.title}, #{book.summary}"
         puts 
 
