@@ -10,7 +10,7 @@ class BookSelector::Scraper
   end 
 
   def all # return all instances of books after scraping read.gov
-    scrape_books # removed self. from front
+    scrape_books
   end 
 
   def scrape_books 
