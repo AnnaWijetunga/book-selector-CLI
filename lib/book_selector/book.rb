@@ -3,10 +3,18 @@ require "open-uri"
 require "nokogiri"
 require "pry"
 
-class BookSelector::Book
+class BookSelector::Book # for storing data (not scraping - moved that)
 
-  attr_accessor :title, :summary, :url, :author
+  attr_accessor :title, :summary, :url
+  @@all = []
 
+  def self.all
+    @@all
+  end 
+
+  def save
+    @@all << self
+  end 
   # def self.all # return all instances of books after scraping read.gov
   #   self.scrape_books
   # end 
