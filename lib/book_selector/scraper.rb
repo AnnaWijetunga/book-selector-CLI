@@ -3,20 +3,25 @@ require "open-uri"
 require "nokogiri"
 require "pry"
 
+class BookSelector::Scraper
 
-
-def self.all # return all instances of books after scraping read.gov
-    self.scrape_books
+  def initialize(title = nil)
+    @title = title
   end 
 
-  def self.scrape_books 
+  def all # return all instances of books after scraping read.gov
+    scrape_books # removed self. from front
+  end 
+
+  def scrape_books 
     base_url = "http://read.gov/books/"
     html = open(base_url).read 
     page = Nokogiri::HTML.parse(html)
     # doc = Nokogiri::HTML(open("http://read.gov/books/"))
 
     page.css("#main_body > ul:nth-child(6) > li").map do |book_node|
-      book = new
+      # book = new
+      book = BookSelector::Book.new
       
       title_node = book_node.css("strong")
       book.title = title_node.text
@@ -34,4 +39,5 @@ def self.all # return all instances of books after scraping read.gov
       book.summary = summary
       book
     end
-  end
+  end 
+end
