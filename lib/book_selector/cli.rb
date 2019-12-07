@@ -23,33 +23,40 @@ class BookSelector::CLI
   end 
 
   def menu 
-    puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
-    puts
-    input = gets.strip # nil
-    #   puts "Would you like to see more?"
-    #   answer = gets.strip
+    input = nil 
 
-    #   if ["Y", "YES"].include?(answer.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
     while input != "exit"
-      input = gets.strip.downcase # strip, removes whitespace before and after user input
+      puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
+      puts
+  
+      input = gets.strip.to_i 
+      # input = gets.strip.downcase # strip, removes whitespace before and after user input
       
+      if input_valid?(input)
+        book = BookSelector::Book.all[input.to_i-1]
+        puts "#{book.title}, #{book.summary}"
+        puts
+        # book_details(book)
+      end
+
       if input.to_i <= BookSelector::Book.all.size
         book = BookSelector::Book.all[input.to_i-1]
-        # book = @books[input.to_i-1]
-        puts "#{book.title}, #{book.summary}"
-        puts 
+        # puts "#{book.title}, #{book.summary}"
 
         sleep 1
         puts "Would you like to know more about this book?"
         input = gets.strip #nil 
         
-        if ["Y", "YES"].include?(input.upcase) # these are the acceptable yes values and whatever they type in, we turn it uppercase
-          input = gets.strip
-          puts "#{book.url}" # soon add #{book.author}
+        if ["Y", "YES"].include?(input.upcase) # these are the acceptable yes values, whatever they type in, we turn it uppercase
+          puts book.scrape_details
+          puts
+          sleep 1
+          puts "Visit here for even more:"
+          sleep 1
+          puts "#{book.url}"
           puts
           puts "For more books, type list. Or, type exit to exit."
         elsif ["N", "NO"].include?(input.upcase) 
-          input = gets.strip
           puts "For more books, type list. Or, type exit to exit."
         end 
 
@@ -59,9 +66,35 @@ class BookSelector::CLI
         puts "So sorry, I didn't understand. Please type list or exit."
       end
     end
-  end 
+  end
+  
+  def input_valid?(input)
+    if input >= BookSelector::Book.all.size || input <= 0
+      return false
+    else
+      return true
+    end
+  end
+
+  # may build this out - but let's wait a sec
+
+  def book_details(book)
+    if ["Y", "YES"].include?(input.upcase) # these are the acceptable yes values, whatever they type in, we turn it uppercase
+      puts book.scrape_details
+      puts
+      sleep 1
+      puts "Visit here for even more:"
+      sleep 1
+      puts "#{book.url}"
+      puts
+      puts "For more books, type list. Or, type exit to exit."
+    elsif ["N", "NO"].include?(input.upcase) 
+      puts "For more books, type list. Or, type exit to exit."
+    end 
+  end
 
   def goodbye
     puts "Bye for now! Happy reading!"
   end 
+
 end 
