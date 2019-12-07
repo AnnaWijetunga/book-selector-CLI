@@ -19,11 +19,7 @@ class BookSelector::Book # for storing data (not scraping - moved that)
 
   def scrape_details
     doc =  Nokogiri::HTML(open(self.url))
-    binding.pry
     doc.css("div #col2full_left").css('ul').children[1].text
-    doc.css("div #col2full_left").css('ul').children[5].text
   end
 
 end 
-
-# Moved all scraping methods over to scraper.rb
