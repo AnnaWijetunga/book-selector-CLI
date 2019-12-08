@@ -25,12 +25,11 @@ class BookSelector::CLI
   def menu 
     input = nil 
 
-    while input != "exit" # beginning of the loop
+    while input != "exit"
       puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
       puts
   
       input = gets.strip
-      # input = gets.strip.downcase # strip, removes whitespace before and after user input
       
       if input_valid?(input)
         #if input.to_i != 0 
@@ -46,7 +45,7 @@ class BookSelector::CLI
           input = gets.strip 
         end 
 
-        if ["Y", "YES"].include?(input.upcase) # these are the acceptable yes values, whatever they type in, we turn it uppercase
+        if ["Y", "YES"].include?(input.upcase) # acceptable yes values, what they type in becomes uppercase
           puts book.scrape_details
           puts
           sleep 1
