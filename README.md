@@ -1,8 +1,6 @@
 # BookSelector
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/book_selector`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome! Running this gem will enable you to enter an application where you can select from a list of classic children's books to find out more information (summary, author, link to more). Enjoy!
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run ./bin/book-selector in your terminal and you'll be welcomed to the program and prompted to enter the number of a book title.
 
 ## Development
 
