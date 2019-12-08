@@ -25,7 +25,7 @@ class BookSelector::CLI
   def menu 
     input = nil 
 
-    while input != "exit"
+    while input != "exit" # beginning of the loop
       puts "Type the number of a book to read its summary. To see the book list again, type list. Or, type exit:"
       puts
   
@@ -36,17 +36,14 @@ class BookSelector::CLI
         #if input.to_i != 0 
         book = BookSelector::Book.all[input.to_i-1]
         puts "#{book.title}, #{book.summary}"
-        #end 
-        # book_details(book)
-      # end
+        # book_details(book) - may build this out later
 
         if input.to_i <= BookSelector::Book.all.size
           book = BookSelector::Book.all[input.to_i-1]
-        # puts "#{book.title}, #{book.summary}"
 
           sleep 1
           puts "Would you like to know more about this book?"
-          input = gets.strip #nil 
+          input = gets.strip 
         end 
 
         if ["Y", "YES"].include?(input.upcase) # these are the acceptable yes values, whatever they type in, we turn it uppercase
@@ -58,30 +55,18 @@ class BookSelector::CLI
           puts "#{book.url}"
           puts
           puts "For more books, type list. Or, type exit to exit."
-        #elsif ["N", "NO"].include?(input.upcase) 
-          #break
         end 
-       
-
-      # puts "For more books, type list. Or, type exit to exit."
-      # #input = gets.strip
-      # ask_for_list
 
       elsif input == "list"
         list_books
+      elsif input == "exit" 
+        break 
       else
         puts "So sorry, I didn't understand. Please type list or exit."
       end
     end
   end
-
-  def ask_for_list
-    input = gets.strip
-    if input == "list"
-      list_books
-    end
-  end
-  
+ 
   def input_valid?(input)
     if input.to_i >= BookSelector::Book.all.size || input.to_i <= 0
       return false
