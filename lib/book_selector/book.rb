@@ -4,6 +4,9 @@ require "open-uri" # lets us open the HTML like a file and pass it to Nokogiri
 require "nokogiri"
 require "pry"
 
+# require - method used when to reference/execute code that is not written in my current file (for external files)
+# require_relative - subset of require, method used when referring to a file that is within same project directory
+
 class BookSelector::Book # defines how to build a book - and used for storing data about books 
 
   attr_accessor :title, :summary, :url
