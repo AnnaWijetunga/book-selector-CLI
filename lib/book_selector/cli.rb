@@ -1,4 +1,5 @@
 # CLI controller, responsible for user interactions
+
 class BookSelector::CLI
 
   def call 
