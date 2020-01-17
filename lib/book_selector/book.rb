@@ -4,8 +4,8 @@ require "open-uri" # lets us open the HTML like a file and pass it to Nokogiri
 require "nokogiri"
 require "pry"
 
-# require - method used when to reference/execute code that is not written in my current file (for external files)
-# require_relative - subset of require, method used when referring to a file that is within same project directory
+# require - method used when to reference/execute code that is not written in my current file (for external files) - looks inside path
+# require_relative - subset of require, method used when referring to a file that is within same project directory - looks inside specific file
 
 class BookSelector::Book # defines how to build a book - and used for storing data about books 
 
@@ -26,6 +26,20 @@ class BookSelector::Book # defines how to build a book - and used for storing da
   def scrape_details
     doc =  Nokogiri::HTML(open(self.url))
     doc.css("div #col2full_left").css('ul').children[1].text
+  end
+
+  # two methods
+  # method to sort books
+  # method to takes in user input - looks for a book that starts with a letter, return all books that start with or include that letter
+
+  def sort_books
+    # sort by starting with A - Z 
+    # iterate over all book titles, looking at the first letter of the title
+    # title is alphabetized
+    # return the list of books in order
+
+    # need all books
+    self.all.sort_by { |book| book.title }
   end
 
 end 
