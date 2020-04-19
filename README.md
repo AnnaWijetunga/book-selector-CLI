@@ -2,6 +2,10 @@
 
 Welcome! Running this gem will enable you to enter an application where you can select from a list of classic children's books to find out more information (summary, author, link to more). Enjoy!
 
+## Video Walkthrough
+
+Click here for a 1-minute video walkthrough: https://vimeo.com/378164946
+
 ## Installation
 
 Add this line to your application's Gemfile:
