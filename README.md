@@ -24,7 +24,11 @@ Or install it yourself as:
 
 ## Usage
 
-Run ./bin/book-selector in your terminal and you'll be welcomed to the program and prompted to enter the number of a book title.
+Run ./bin/book-selector in your terminal:
+
+    $ ./bin/book-selector
+
+You'll be welcomed to the program and prompted to enter the number of a book title. Once you select a book by its number, you'll see a brief summary of the book, and you'll be asked if you'd like to learn more. If yes, you'll see a link to the book summary, which you can open in your browser. If not, you can select a new book number or at any time, type exit to leave the program.
 
 ## Development
 
