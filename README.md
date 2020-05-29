@@ -1,10 +1,12 @@
 # BookSelector
 
-Welcome! So many books are available for consumption these days, it's hard to know what to read to your children. 
+Welcome, glad you found BookSelector! 
 
-Running this gem will enable you to enter an application where you can select from a list of classic children's books to find out more information (summary, author, link to more). 
+So many books are available for consumption these days, it's hard to know which books to read to your children.
 
-Enjoy and happy reading!
+Running this gem will enable you to enter an application where you can select from a list of classic children's books to find out more information (summary, author, link to more).
+
+I hope you enjoy and happy reading!
 
 ## Video Walkthrough
 
